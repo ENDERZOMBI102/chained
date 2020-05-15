@@ -24,10 +24,13 @@ class chainOpen:
         self.writeline(txt)
         return self
             
-    def close(self):
+    def close(self, x='o'):
         self.file.close()
+        if not x == 'o': del self
+        else: return self
 
     def reopen(self, path: Union([Path, str]), mode='r'):
         if not (mode in ['r', 'x', 'w', 'a', 'b']):
             raise ValueError('only r, x, w, a, b are supported operations!')
         self.file = open(path, mode)
+        return self
