@@ -3,7 +3,7 @@ A python 3 library that provide chainable functions
 
 | Modules |
 |---------|
-|[chainOpen](|
+|[chainOpen](https://github.com/ENDERZOMBI102/chained/blob/master/README.md#chainopen)|
 
 
 
