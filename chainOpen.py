@@ -16,10 +16,11 @@ class chainOpen:
 
 
 
-    def __init__( self, path: Union[Path, str], mode = 'r' ):
+    def __init__( self, path: Union[Path, str, bytes], mode = 'r' ):
         if not ( mode in ['r', 'x', 'w', 'a', 'b'] ):
             raise ValueError('only r, x, w, a, b are supported operations!')
         if isinstance(path, str): self.filePath = path
+        elif isinstance(path, bytes): self.filePath = str(path)
         else: self.filePath = path.resolve()
         self.file = open(self.filePath, mode)
 
