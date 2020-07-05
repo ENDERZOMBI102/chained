@@ -28,11 +28,13 @@ class chainOpen:
         self.lastSucceeded = self.file.write(txt)
         return self
     
-    def read( self ):
-        return self, self.file.read()
-            
-    def close(self, data: Union[str, bytes] = None):
+    def readAndClose( self ):
+        data = self.file.read()
         self.file.close()
-        if data is not None:
-            return data
+        return data
+            
+    def close( self ):
+        self.file.close()
         
+if __name__=='__main__':
+	print( chainOpen('code.x', 'r').readAndClose() )
