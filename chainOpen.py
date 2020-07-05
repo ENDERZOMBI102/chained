@@ -27,21 +27,11 @@ class chainOpen:
         self.lastSucceeded = self.file.write(txt)
         return self
     
-    def read( self, size: int = None ):
-        return self, self.file.read(size)
+    def read( self ):
+        return self, self.file.read()
             
-    def close(self, x='o'):
+    def close(self, data: Union[str, bytes] = None):
         self.file.close()
-        if x == 'o':
-            return _kill(self)
-        else: return self
-
-    def reopen(self, mode='r'):
-        if not (mode in ['r', 'x', 'w', 'a', 'b']):
-            raise ValueError('only r, x, w, a, b are supported operations!')
-        self.file = open(self.filePath, mode)
-        return self
-
-def _kill(obj):
-    del obj
-    return None
+        if data is not None:
+            return data
+        
