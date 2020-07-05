@@ -16,8 +16,6 @@ chainOpen
 -
 ```python
 >>> from chained import chainOpen
->>> a, b = chainOpen('C:/text.txt', 'x').write('hello ').write('world!').close('').reopen('r').read()
->>> a.close()
->>> b
+>>> chainOpen('C:/text.txt', 'x').write('hello ').write('world!').readAndClose()
 'hello world!'
 ```
